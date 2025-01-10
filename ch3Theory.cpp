@@ -8,8 +8,7 @@ void change(int &a)
     a = 10;
 }
 
-std::ostream * output  = &std::cout; // pointer to 'cout' object 
-
+std::ostream *output = &std::cout; // pointer to 'cout' object
 
 extern int state;
 int yr = 2025;
@@ -62,6 +61,10 @@ int main(int argc, char *argv[])
     // constant pointer
     int *const constptr = &yr;
     // constptr = &A; // it cannot point to any other address
+
+    // we can have a const ptr to a const value
+    const int a = 5;
+    const int *const ptr = &a;
 
     // in C char are stored as int
     // but in C++ char are stored as char
@@ -131,21 +134,21 @@ int main(int argc, char *argv[])
     // but endl also flushes the buffer
 
     /*1. Buffering in C++
-    In the context of input and output (I/O) operations, buffering refers to temporarily storing data in a memory area (called a buffer) before it's 
-    actually read from or written to the system. 
+    In the context of input and output (I/O) operations, buffering refers to temporarily storing data in a memory area (called a buffer) before it's
+    actually read from or written to the system.
     This process helps improve efficiency, especially when dealing with large amounts of data.
 
-    For Output (writing): When you output data (like printing to the console), it's not always written immediately. Instead, 
-    it's stored in an output buffer. The system writes the contents of the buffer to the actual output (like the screen or a file) all at once 
+    For Output (writing): When you output data (like printing to the console), it's not always written immediately. Instead,
+    it's stored in an output buffer. The system writes the contents of the buffer to the actual output (like the screen or a file) all at once
     when the buffer is full or when certain conditions are met.
 
-    For Input (reading): Similarly, when you read input, data may be temporarily stored in an input buffer. When you try to read, 
+    For Input (reading): Similarly, when you read input, data may be temporarily stored in an input buffer. When you try to read,
     the program first checks the buffer for data before making an actual system call to get more data.
 
     Example: When you use std::cout to print something, it's often buffered and may not immediately appear on the screen until the buffer is flushed.
 
     2. Flushing the Buffer
-    Flushing the buffer means forcing the buffered data to be written out to the actual output (or read into the program from the input source), 
+    Flushing the buffer means forcing the buffered data to be written out to the actual output (or read into the program from the input source),
     even if the buffer isn't full.*/
 
     std::cout << std::endl; // endl prints a newline and also flushes the buffer
@@ -156,24 +159,20 @@ int main(int argc, char *argv[])
     but it cannot directly allocate a multidimensional array like new int[3][5][4];
     */
 
+    //----------------------------------------------------
 
-//----------------------------------------------------
+    // Note that cin and cout are objects of classes istream and ostream respectively.
+    // And yk wht? objects can access member functions
 
-// Note that cin and cout are objects of classes istream and ostream respectively.
-// And yk wht? objects can access member functions 
+    // std::cout << std::boolalpha;
+    // std::cout << (1==0); // displays false
 
-// std::cout << std::boolalpha;
-// std::cout << (1==0); // displays false
+    std::cout.write("Hello World", 15); // write() doesn't perform any formatting like cout
+    std::cout.flush();                  // flush ensures that all the buffered data in the output stream is
+    // immediately written out to the destination (console, file, etc.).
 
-std::cout.write("Hello World",15); // write() doesn't perform any formatting like cout
-std::cout.flush(); // flush ensures that all the buffered data in the output stream is
-// immediately written out to the destination (console, file, etc.).
-
-*output << "Hello"; // dereference output to get cout and then use it 
-
-
+    *output << "Hello"; // dereference output to get cout and then use it
 }
-
 
 /*
 
