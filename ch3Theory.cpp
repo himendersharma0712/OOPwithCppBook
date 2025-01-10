@@ -44,7 +44,7 @@ int main(int argc, char *argv[])
     Switch switch__ = On;
 
     int pink = 8;
-    color wallpaper = (color)pink;
+    color wallpaper = color(pink);
 
     // register int state = Off;
     // register keyword isn't used anymore
@@ -131,8 +131,9 @@ int main(int argc, char *argv[])
     // but endl also flushes the buffer
 
     /*1. Buffering in C++
-    In the context of input and output (I/O) operations, buffering refers to temporarily storing data in a memory area (called a buffer) before it's actually read
-    from or written to the system. This process helps improve efficiency, especially when dealing with large amounts of data.
+    In the context of input and output (I/O) operations, buffering refers to temporarily storing data in a memory area (called a buffer) before it's 
+    actually read from or written to the system. 
+    This process helps improve efficiency, especially when dealing with large amounts of data.
 
     For Output (writing): When you output data (like printing to the console), it's not always written immediately. Instead, 
     it's stored in an output buffer. The system writes the contents of the buffer to the actual output (like the screen or a file) all at once 
@@ -147,7 +148,7 @@ int main(int argc, char *argv[])
     Flushing the buffer means forcing the buffered data to be written out to the actual output (or read into the program from the input source), 
     even if the buffer isn't full.*/
 
-    std::cout << std::endl;
+    std::cout << std::endl; // endl prints a newline and also flushes the buffer
 
     /*
     In C++, the new operator can allocate a single-dimensional array or a pointer
@@ -172,3 +173,12 @@ std::cout.flush(); // flush ensures that all the buffered data in the output str
 
 
 }
+
+
+/*
+
+int reserves one bit for the sign (positive or negative), leaving 31 bits for the actual value.
+
+unsigned int uses all 32 bits for the value itself, making it larger in terms of positive range.
+
+*/
