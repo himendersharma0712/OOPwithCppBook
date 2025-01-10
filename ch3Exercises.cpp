@@ -227,7 +227,50 @@ namespace stats
         return sqrt(sum_sqd_dev / size_arr);
     }
 
+long long fact(int n)
+{
+    int fact = 1;
+    if (n > 0)
+    {
+        for (int i = 1; i <= n; i++)
+        {
+            fact *= i;
+        }
+        return fact;
+    }
+    else if (n == 0)
+    {
+        return 1;
+    }
+
+    else{
+        return 1;
+    }
 }
+
+double sin_x_series(int terms, double x)
+{
+    double sum_A = 0,sum_B=0;
+
+    for(int i = 0; i < terms; i++){
+        int power = 2*i + 1;
+        sum_A += pow(x,power)/fact(power);
+    }
+
+    for(int i = 0; i < terms - 1; i++){
+        int power = 2*i + 3;
+        sum_B += pow(x,power)/fact(power);
+    }
+
+    return sum_A - sum_B;
+
+}
+
+}
+
+
+
+
 
 int main()
 {
@@ -254,4 +297,7 @@ int main()
 
     // std::cout << stats::std_deviation(arr1,7);
     // std::cout << stats::variance(arr1,7);
+
+    // std::cout << "sin x till 50 for x = 1" << stats::sin_x_series(10,1);
+
 }
